@@ -9,4 +9,5 @@ public interface ActionService {
     Action editAction(Action action);
     List<Action> getAll();
     void deleteAction(long id);
+    Action getById(long id);
 }

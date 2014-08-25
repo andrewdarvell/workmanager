@@ -16,8 +16,8 @@
     <table>
         <tr>
             <td><form:label path="firstName">
-                <spring:message code="label.firstName" />
-            </form:label></td>
+                    <spring:message code="label.firstName" />
+                </form:label></td>
             <td><form:input path="firstName" /></td>
         </tr>
         <tr>
@@ -53,15 +53,19 @@
             <th><spring:message code="label.lastName" /></th>
             <th><spring:message code="label.position" /></th>
             <th><spring:message code="label.ages" /></th>
+            <th><spring:message code="label.job" /></th>
             <th>&nbsp;</th>
         </tr>
         <c:forEach items="${workerList}" var="worker">
             <tr>
+
                 <td>${worker.lastName}</td>
                 <td>${worker.firstName}</td>
                 <td>${worker.position}</td>
                 <td>${worker.ages}</td>
-                <td><a href="delete/${worker.id}"><spring:message code="label.delete" /></a></td>
+                <td>${worker.action.id}${worker.action.actionName}</td>
+                <td><a href="/workmanager/actions/id=${worker.action.id}">${worker.action.actionName}</a></td>
+            <td><a href="delete/${worker.id}"><spring:message code="label.delete" /></a></td>
             </tr>
         </c:forEach>
     </table>

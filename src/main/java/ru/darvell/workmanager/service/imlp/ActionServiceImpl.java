@@ -34,4 +34,9 @@ public class ActionServiceImpl implements ActionService {
     public void deleteAction(long id) {
         actionRepository.delete(id);
     }
+
+    @Override
+    public Action getById(long id) {
+        return actionRepository.getOne(id);
+    }
 }

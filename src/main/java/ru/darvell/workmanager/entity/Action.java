@@ -13,15 +13,18 @@ public class Action {
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
-    @Column(name = "id",nullable = false)
+    @Column(name = "action_id",nullable = false)
     private long id;
 
     @Column(name = "actionName")
     private String actionName;
 
-    @Column(name = "worker")
+    /*
+    @OneToOne(optional = false)
+    @JoinColumn(name="worker", unique = true)
     private Worker worker;
 
+*/
     public long getId() {
         return id;
     }
@@ -37,7 +40,7 @@ public class Action {
     public void setActionName(String actionName) {
         this.actionName = actionName;
     }
-
+/*
     public Worker getWorker() {
         return worker;
     }
@@ -45,12 +48,20 @@ public class Action {
     public void setWorker(Worker worker) {
         this.worker = worker;
     }
-
-    public Action(String actionName, Worker worker) {
+*/
+    //public Action(String actionName, Worker worker) {
+    public Action(String actionName) {
         this.actionName = actionName;
-        this.worker = worker;
+        //this.worker = worker;
     }
 
     public Action() {
+    }
+
+    @Override
+    public String toString() {
+        return "Action{" +
+                "id=" + id +
+                ", actonName='" + actionName + '}';
     }
 }

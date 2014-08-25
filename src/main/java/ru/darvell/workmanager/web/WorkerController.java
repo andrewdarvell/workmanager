@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ru.darvell.workmanager.entity.Worker;
 import ru.darvell.workmanager.service.WorkerService;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -28,11 +29,16 @@ public class WorkerController {
 	}
 
 	@RequestMapping("/worker/index")
-	public String listContacts(Map<String, Object> map) {
+	public String listWorkers(Map<String, Object> map) {
 
 		map.put("worker", new Worker());
 		map.put("workerList", workerService.getAll());
-
+        /*
+        List<Worker> workers = workerService.getAll();
+        for(int i = 0; i<workers.size();i++){
+            System.out.println(workers.get(i).getAction().getActionName());
+        }
+        */
 		return "worker";
 	}
 
@@ -49,6 +55,8 @@ public class WorkerController {
         workerService.deleteWorker(workerId);
 		return "redirect:/worker/index";
 	}
+
+
 
 
 }

@@ -27,18 +27,31 @@ public class Worker {
 	@Column(name = "ages")
 	private String ages;
 
+    @ManyToOne
+    @JoinColumn(name = "action_id")
+    private Action action;
+
 	public Worker(){
 
 	}
 
-	public Worker(String firstName, String lasName, String position, String ages) {
+	public Worker(String firstName, String lasName, String position, String ages, Action action) {
 		this.firstName = firstName;
 		this.lastName = lasName;
 		this.position = position;
 		this.ages = ages;
+        this.action = action;
 	}
 
-	public long getId() {
+    public Action getAction() {
+        return action;
+    }
+
+    public void setAction(Action action) {
+        this.action = action;
+    }
+
+    public long getId() {
 		return id;
 	}
 
