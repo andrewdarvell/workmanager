@@ -23,4 +23,21 @@ public class WorkerServiceImpl implements WorkerService{
 	public List<Worker> getAll() {
 		return workerRepository.findAll();
 	}
+
+    @Override
+    public void delete(long id) {
+        workerRepository.delete(id);
+    }
+
+    @Override
+    public Worker editWorker(Worker worker) {
+        return workerRepository.saveAndFlush(worker);
+    }
+
+    @Override
+    public Worker getByLastName(String lastName) {
+        return workerRepository.findByLastName(lastName);
+    }
+
+
 }

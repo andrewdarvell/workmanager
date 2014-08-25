@@ -15,10 +15,10 @@ public class Worker {
 	@Column(name = "id",nullable = false)
 	private long id;
 
-	@Column(name = "firstname")
+	@Column(name = "firstName")
 	private String firstName;
 
-	@Column(name = "lastname")
+	@Column(name = "lastName")
 	private String lastName;
 
 	@Column(name = "position")

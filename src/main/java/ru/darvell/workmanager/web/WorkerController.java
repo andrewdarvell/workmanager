@@ -24,10 +24,10 @@ public class WorkerController {
 	@RequestMapping("/")
 	public String home() {
 		System.out.println("#####################################");
-		return "redirect:/index";
+		return "redirect:/worker/index";
 	}
 
-	@RequestMapping("/index")
+	@RequestMapping("/worker/index")
 	public String listContacts(Map<String, Object> map) {
 
 		map.put("worker", new Worker());
@@ -36,18 +36,18 @@ public class WorkerController {
 		return "worker";
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/worker/add", method = RequestMethod.POST)
 	public String addContact(@ModelAttribute("Worker") Worker worker,BindingResult result) {
 
 		workerService.addWorker(worker);
 
-		return "redirect:/index";
+		return "redirect:/worker/index";
 	}
 
-	@RequestMapping("/delete/{workerId}")
-	public String deleteContact(@PathVariable("workerId") Integer contactId) {
-
-		return "redirect:/index";
+	@RequestMapping("/worker/delete/{workerId}")
+	public String deleteContact(@PathVariable("workerId") Integer workerId) {
+        workerService.delete(workerId);
+		return "redirect:/worker/index";
 	}
 
 

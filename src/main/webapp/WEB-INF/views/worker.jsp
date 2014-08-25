@@ -57,7 +57,8 @@
         </tr>
         <c:forEach items="${workerList}" var="worker">
             <tr>
-                <td>${worker.lastName}, ${worker.firstName}</td>
+                <td>${worker.lastName}</td>
+                <td>${worker.firstName}</td>
                 <td>${worker.position}</td>
                 <td>${worker.ages}</td>
                 <td><a href="delete/${worker.id}"><spring:message code="label.delete" /></a></td>
