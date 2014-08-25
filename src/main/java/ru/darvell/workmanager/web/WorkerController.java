@@ -23,7 +23,7 @@ public class WorkerController {
 
 	@RequestMapping("/")
 	public String home() {
-		System.out.println("#####################################");
+		System.out.println("Redirect to index");
 		return "redirect:/worker/index";
 	}
 
@@ -46,7 +46,7 @@ public class WorkerController {
 
 	@RequestMapping("/worker/delete/{workerId}")
 	public String deleteContact(@PathVariable("workerId") Integer workerId) {
-        workerService.delete(workerId);
+        workerService.deleteWorker(workerId);
 		return "redirect:/worker/index";
 	}
 

@@ -9,7 +9,7 @@ public interface WorkerService {
 
 	List<Worker> getAll();
 
-    void delete(long id);
+    void deleteWorker(long id);
 
     Worker editWorker(Worker worker);
 
